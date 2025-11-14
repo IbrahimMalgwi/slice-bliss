@@ -146,7 +146,7 @@ const Home = () => {
           </h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
             Order online for pickup or delivery and experience the magic of
-            SliceBliss Bake House.
+            SlicedBliss BakeHouse.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
             <Link to="/order">
