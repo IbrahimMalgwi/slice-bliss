@@ -68,7 +68,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12 bg-amber-50">
+    <div className="min-h-screen py-12 bg-gradient-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Get in Touch"
@@ -80,27 +80,29 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-amber-800 mb-6">
+              <h3 className="text-2xl font-bold text-secondary-800 mb-6">
                 Contact Information
               </h3>
 
               <div className="space-y-6 mb-8">
                 {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <span className="text-2xl">{item.icon}</span>
+                    <span className="text-2xl text-custom-orange">
+                      {item.icon}
+                    </span>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">
+                      <h4 className="font-semibold text-secondary-800 mb-1">
                         {item.title}
                       </h4>
                       {item.details.map((detail, idx) => (
-                        <p key={idx} className="text-gray-600">
+                        <p key={idx} className="text-secondary-600">
                           {detail}
                         </p>
                       ))}
                       {item.link && (
                         <a
                           href={item.link}
-                          className="text-amber-600 hover:text-amber-700 font-medium text-sm"
+                          className="text-custom-orange hover:text-primary-600 font-medium text-sm"
                         >
                           Get Directions →
                         </a>
@@ -112,13 +114,15 @@ const Contact = () => {
 
               {/* Social Links */}
               <div>
-                <h4 className="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                <h4 className="font-semibold text-secondary-800 mb-4">
+                  Follow Us
+                </h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
-                      className="w-12 h-12 bg-amber-100 hover:bg-amber-200 rounded-full flex items-center justify-center transition-colors duration-200"
+                      className="w-12 h-12 bg-primary-100 hover:bg-custom-orange rounded-full flex items-center justify-center transition-colors duration-200"
                       title={social.name}
                     >
                       <span className="text-lg">{social.icon}</span>
@@ -149,7 +153,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-amber-800 mb-6">
+              <h3 className="text-2xl font-bold text-secondary-800 mb-6">
                 Send us a Message
               </h3>
 
@@ -158,7 +162,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-secondary-700 mb-2"
                     >
                       Full Name *
                     </label>
@@ -169,14 +173,14 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                      className="form-input"
                       placeholder="Your full name"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-secondary-700 mb-2"
                     >
                       Email Address *
                     </label>
@@ -187,7 +191,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                      className="form-input"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -197,7 +201,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-secondary-700 mb-2"
                     >
                       Phone Number
                     </label>
@@ -207,14 +211,14 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                      className="form-input"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+                      className="block text-sm font-medium text-secondary-700 mb-2"
                     >
                       Subject *
                     </label>
@@ -224,7 +228,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                      className="form-input"
                     >
                       <option value="">Select a subject</option>
                       <option value="general">General Inquiry</option>
@@ -239,7 +243,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-secondary-700 mb-2"
                   >
                     Message *
                   </label>
@@ -250,7 +254,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                    className="form-input"
                     placeholder="Tell us how we can help you..."
                   />
                 </div>
@@ -267,8 +271,8 @@ const Contact = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-gray-200 rounded-2xl h-64 mt-8 flex items-center justify-center">
-              <div className="text-center text-gray-600">
+            <div className="bg-secondary-200 rounded-2xl h-64 mt-8 flex items-center justify-center">
+              <div className="text-center text-secondary-600">
                 <div className="text-4xl mb-2">🗺️</div>
                 <p>Interactive Map Would Appear Here</p>
               </div>

@@ -15,18 +15,26 @@
 }
 
 @layer components {
-  /* Custom button styles */
+  /* Custom button styles with new color scheme */
   .btn-primary {
-    @apply bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 shadow-lg hover:shadow-xl;
+    @apply bg-custom-orange hover:bg-primary-600 text-secondary-900 font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200 focus:ring-offset-2 shadow-lg hover:shadow-xl;
   }
 
   .btn-secondary {
-    @apply bg-white border-2 border-amber-500 text-amber-600 hover:bg-amber-50 font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-amber-200 focus:ring-offset-2 shadow-lg hover:shadow-xl;
+    @apply bg-white border-2 border-custom-orange text-secondary-900 hover:bg-primary-50 font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200 focus:ring-offset-2 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-secondary-300 text-secondary-700 hover:border-custom-orange hover:text-secondary-900 focus:ring-primary-200;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-secondary-600 hover:text-custom-orange hover:bg-primary-50 focus:ring-primary-200;
   }
 
   /* Card styles */
   .card {
-    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-orange-100;
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 border border-secondary-100;
   }
 
   /* Section styles */
@@ -40,21 +48,30 @@
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent;
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+
+  /* Background gradients */
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-custom-orange to-primary-400;
+  }
+
+  .bg-gradient-light {
+    @apply bg-gradient-to-br from-primary-50 to-secondary-50;
   }
 
   /* Form styles */
   .form-input {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200 placeholder-gray-400;
+    @apply w-full px-4 py-3 border border-secondary-300 rounded-xl focus:ring-2 focus:ring-custom-orange focus:border-custom-orange transition-all duration-200 placeholder-secondary-400;
   }
 
   /* Navigation styles */
   .nav-link {
-    @apply text-gray-600 hover:text-amber-600 transition-colors duration-200 font-medium;
+    @apply text-secondary-600 hover:text-custom-orange transition-colors duration-200 font-medium;
   }
 
   .nav-link-active {
-    @apply text-amber-600 bg-amber-50 rounded-lg;
+    @apply text-custom-orange bg-primary-50 rounded-lg;
   }
 }
 
@@ -70,7 +87,7 @@
   }
 
   .glass-dark {
-    @apply bg-gray-900/10 backdrop-blur-md border border-gray-900/20;
+    @apply bg-secondary-900/10 backdrop-blur-md border border-secondary-900/20;
   }
 }
 

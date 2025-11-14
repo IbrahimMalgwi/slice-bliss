@@ -37,13 +37,13 @@ const Order = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 bg-amber-50">
+    <div className="min-h-screen py-12 bg-gradient-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-serif font-bold text-amber-800 mb-4">
+          <h1 className="text-4xl font-serif font-bold text-secondary-800 mb-4">
             Place Your Order
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-secondary-600">
             Select your favorite treats and we'll have them ready for you
           </p>
         </div>
@@ -58,7 +58,7 @@ const Order = () => {
                   className="bg-white rounded-lg shadow-md p-6"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
+                    <div className="w-20 h-20 bg-secondary-200 rounded-lg overflow-hidden flex-shrink-0">
                       <img
                         src={product.image}
                         alt={product.name}
@@ -69,16 +69,16 @@ const Order = () => {
                       <h3 className="text-lg font-semibold mb-1">
                         {product.name}
                       </h3>
-                      <p className="text-gray-600 text-sm mb-2">
+                      <p className="text-secondary-600 text-sm mb-2">
                         {product.description}
                       </p>
                       <div className="flex items-center justify-between">
-                        <span className="text-amber-600 font-bold">
+                        <span className="text-custom-orange font-bold">
                           ${product.price}
                         </span>
                         <button
                           onClick={() => addToCart(product)}
-                          className="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200"
+                          className="bg-custom-orange hover:bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200"
                         >
                           Add to Cart
                         </button>
@@ -93,12 +93,12 @@ const Order = () => {
           {/* Shopping Cart */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
-              <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+              <h2 className="text-2xl font-semibold mb-6 text-secondary-800">
                 Your Order
               </h2>
 
               {cart.length === 0 ? (
-                <p className="text-gray-500 text-center py-8">
+                <p className="text-secondary-500 text-center py-8">
                   Your cart is empty
                 </p>
               ) : (
@@ -107,11 +107,11 @@ const Order = () => {
                     {cart.map((item) => (
                       <div
                         key={item.id}
-                        className="flex items-center justify-between border-b pb-4"
+                        className="flex items-center justify-between border-b border-secondary-200 pb-4"
                       >
                         <div className="flex-1">
                           <h4 className="font-semibold">{item.name}</h4>
-                          <p className="text-amber-600 font-bold">
+                          <p className="text-custom-orange font-bold">
                             ${item.price}
                           </p>
                         </div>
@@ -120,7 +120,7 @@ const Order = () => {
                             onClick={() =>
                               updateQuantity(item.id, item.quantity - 1)
                             }
-                            className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center"
+                            className="w-8 h-8 rounded-full bg-secondary-200 flex items-center justify-center"
                           >
                             -
                           </button>
@@ -131,7 +131,7 @@ const Order = () => {
                             onClick={() =>
                               updateQuantity(item.id, item.quantity + 1)
                             }
-                            className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center"
+                            className="w-8 h-8 rounded-full bg-secondary-200 flex items-center justify-center"
                           >
                             +
                           </button>
@@ -146,10 +146,10 @@ const Order = () => {
                     ))}
                   </div>
 
-                  <div className="border-t pt-4">
+                  <div className="border-t border-secondary-200 pt-4">
                     <div className="flex justify-between items-center mb-4">
                       <span className="text-lg font-semibold">Total:</span>
-                      <span className="text-xl font-bold text-amber-600">
+                      <span className="text-xl font-bold text-custom-orange">
                         ${getTotalPrice().toFixed(2)}
                       </span>
                     </div>
@@ -158,7 +158,7 @@ const Order = () => {
                       Proceed to Payment
                     </button>
 
-                    <button className="w-full border-2 border-amber-500 text-amber-600 hover:bg-amber-50 py-3 rounded-lg font-semibold transition-colors duration-200">
+                    <button className="w-full border-2 border-custom-orange text-custom-orange hover:bg-primary-50 py-3 rounded-lg font-semibold transition-colors duration-200">
                       Order via WhatsApp
                     </button>
                   </div>

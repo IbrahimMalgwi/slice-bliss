@@ -54,7 +54,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12 bg-gradient-to-br from-amber-50 to-orange-50">
+    <div className="min-h-screen py-12 bg-gradient-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <SectionTitle
@@ -66,16 +66,16 @@ const About = () => {
         {/* Story Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="animate-fade-in-up">
-            <h3 className="text-3xl font-display font-bold text-amber-800 mb-6">
+            <h3 className="text-3xl font-display font-bold text-secondary-800 mb-6">
               The Beginning
             </h3>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p className="text-lg text-secondary-700 mb-6 leading-relaxed">
               SliceBliss Bake House started in 2023 when founder Sarah Johnson
               decided to turn her lifelong passion for baking into a business.
               What began as a small home-based operation quickly grew through
               word-of-mouth and the undeniable quality of her creations.
             </p>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            <p className="text-lg text-secondary-700 mb-6 leading-relaxed">
               Today, we operate from our charming storefront in the heart of the
               city, but we've never lost sight of our roots. Every item we bake
               still carries the same love and attention to detail that started
@@ -89,7 +89,7 @@ const About = () => {
                 alt="Our bakery storefront"
                 className="w-full h-96 object-cover rounded-3xl shadow-2xl"
               />
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-amber-500 rounded-2xl flex items-center justify-center shadow-2xl">
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-custom-orange rounded-2xl flex items-center justify-center shadow-2xl">
                 <span className="text-white text-2xl">🍰</span>
               </div>
             </div>
@@ -100,10 +100,10 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           <div className="card p-8 animate-fade-in-up">
             <div className="text-4xl mb-4">🎯</div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">
+            <h3 className="text-2xl font-bold text-secondary-800 mb-4">
               Our Mission
             </h3>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary-700 leading-relaxed">
               To create unforgettable baking experiences by combining
               traditional techniques with innovative flavors, using only the
               highest quality ingredients, and serving our community with warmth
@@ -112,10 +112,10 @@ const About = () => {
           </div>
           <div className="card p-8 animate-fade-in-up animation-delay-200">
             <div className="text-4xl mb-4">🔮</div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">
+            <h3 className="text-2xl font-bold text-secondary-800 mb-4">
               Our Vision
             </h3>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary-700 leading-relaxed">
               To be the neighborhood bakery where every visit feels like coming
               home, where the aroma of fresh baking welcomes you, and where
               every bite creates a moment of pure bliss.
@@ -137,10 +137,10 @@ const About = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="text-3xl mb-4 animate-float">{value.icon}</div>
-              <h4 className="text-xl font-bold gradient-text mb-3">
+              <h4 className="text-xl font-bold text-secondary-800 mb-3">
                 {value.title}
               </h4>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-secondary-600 leading-relaxed">
                 {value.description}
               </p>
             </div>
@@ -168,13 +168,15 @@ const About = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl font-bold text-secondary-800 mb-2">
                   {member.name}
                 </h3>
-                <p className="text-amber-600 font-semibold mb-4">
+                <p className="text-custom-orange font-semibold mb-4">
                   {member.role}
                 </p>
-                <p className="text-gray-600 leading-relaxed">{member.bio}</p>
+                <p className="text-secondary-600 leading-relaxed">
+                  {member.bio}
+                </p>
               </div>
             </div>
           ))}

@@ -80,7 +80,7 @@ function App() {
   return (
     <CartContext.Provider value={{ cart, dispatch }}>
       <Router>
-        <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50">
+        <div className="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50">
           <Header />
           <main>
             <Routes>

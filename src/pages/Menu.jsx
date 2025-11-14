@@ -26,7 +26,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 bg-gradient-to-br from-amber-50 to-orange-50">
+    <div className="min-h-screen py-12 bg-gradient-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Our Menu"
@@ -42,8 +42,8 @@ const Menu = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
                 activeCategory === category.id
-                  ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-2xl shadow-amber-200"
-                  : "bg-white text-gray-700 hover:bg-amber-50 shadow-lg hover:shadow-xl"
+                  ? "bg-custom-orange text-white shadow-2xl shadow-primary-200"
+                  : "bg-white text-secondary-700 hover:bg-primary-50 shadow-lg hover:shadow-xl"
               }`}
             >
               <span>{category.icon}</span>
@@ -64,7 +64,7 @@ const Menu = () => {
         </div>
 
         {/* Special Offers */}
-        <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-8 text-center text-white shadow-2xl shadow-amber-200">
+        <div className="bg-custom-orange rounded-3xl p-8 text-center text-white shadow-2xl shadow-primary-200">
           <div className="max-w-2xl mx-auto">
             <div className="text-4xl mb-4">🎉</div>
             <h3 className="text-3xl font-bold mb-4">Special Launch Offer!</h3>
@@ -72,7 +72,7 @@ const Menu = () => {
               Get 20% off your first online order when you spend $25 or more.
               Use code: <span className="font-mono font-bold">BLISS20</span>
             </p>
-            <button className="bg-white text-amber-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl">
+            <button className="bg-white text-secondary-900 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl">
               Claim Your 20% Off
             </button>
           </div>

@@ -1,4 +1,4 @@
-// pages/Home.jsx (updated Bakery Story Section)
+// pages/Home.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import ImageCarousel from "../components/Hero/ImageCarousel";
@@ -38,10 +38,12 @@ const Home = () => {
                 className="text-center animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-4xl font-bold gradient-text mb-2">
+                <div className="text-4xl font-bold text-custom-orange mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-secondary-600 font-medium">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -49,7 +51,7 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
+      <section className="py-20 bg-gradient-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="Featured Treats"
@@ -64,20 +66,20 @@ const Home = () => {
                 className="group text-center card p-8 animate-fade-in-up"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                <div className="w-24 h-24 mx-auto mb-6 bg-custom-orange rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="w-16 h-16 object-cover rounded-xl"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <h3 className="text-xl font-bold text-secondary-800 mb-3">
                   {product.name}
                 </h3>
-                <p className="text-amber-600 font-bold text-lg mb-4">
+                <p className="text-custom-orange font-bold text-lg mb-4">
                   ${product.price}
                 </p>
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                <p className="text-secondary-600 text-sm mb-6 leading-relaxed">
                   {product.description}
                 </p>
                 <Button variant="secondary" size="small">
@@ -109,16 +111,16 @@ const Home = () => {
               />
             </div>
             <div className="animate-fade-in-up animation-delay-300">
-              <h2 className="text-4xl font-display font-bold gradient-text mb-6">
+              <h2 className="text-4xl font-display font-bold text-secondary-800 mb-6">
                 Visit Our Bakery
               </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <p className="text-lg text-secondary-700 mb-6 leading-relaxed">
                 Step into our warm, inviting bakery where the aroma of fresh
                 bread and pastries welcomes you every morning. Our skilled
                 bakers start before sunrise to ensure everything is fresh and
                 ready for your day.
               </p>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg text-secondary-700 mb-8 leading-relaxed">
                 Located in the heart of the city, we're more than just a bakery
                 - we're a community gathering place where friendships are forged
                 over coffee and delicious treats.
@@ -137,7 +139,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-amber-500 to-orange-500">
+      <section className="py-20 bg-custom-orange">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">
             Ready to Taste the Bliss?

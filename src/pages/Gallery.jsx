@@ -84,7 +84,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 bg-gradient-to-br from-amber-50 to-orange-50">
+    <div className="min-h-screen py-12 bg-gradient-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Our Gallery"
@@ -100,8 +100,8 @@ const Gallery = () => {
               onClick={() => setActiveCategory(category)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 capitalize ${
                 activeCategory === category
-                  ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-2xl shadow-amber-200"
-                  : "bg-white text-gray-700 hover:bg-amber-50 shadow-lg hover:shadow-xl"
+                  ? "bg-custom-orange text-white shadow-2xl shadow-primary-200"
+                  : "bg-white text-secondary-700 hover:bg-primary-50 shadow-lg hover:shadow-xl"
               }`}
             >
               <span>
@@ -138,7 +138,7 @@ const Gallery = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-6 text-white">
                   <h3 className="text-xl font-bold mb-2">{image.title}</h3>
-                  <span className="inline-block bg-amber-500 text-white px-3 py-1 rounded-full text-sm capitalize">
+                  <span className="inline-block bg-custom-orange text-white px-3 py-1 rounded-full text-sm capitalize">
                     {image.category}
                   </span>
                 </div>
@@ -148,7 +148,7 @@ const Gallery = () => {
         </div>
 
         {/* Visit Us CTA */}
-        <div className="bg-gradient-to-r from-amber-500 to-orange-500 rounded-3xl p-8 text-center text-white shadow-2xl">
+        <div className="bg-custom-orange rounded-3xl p-8 text-center text-white shadow-2xl">
           <div className="max-w-2xl mx-auto">
             <h3 className="text-3xl font-bold mb-4">Love What You See?</h3>
             <p className="text-xl mb-6 opacity-90">
@@ -157,7 +157,7 @@ const Gallery = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={openGoogleMaps}
-                className="bg-white text-amber-600 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="bg-white text-secondary-900 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Get Directions
               </button>
@@ -180,7 +180,7 @@ const Gallery = () => {
             <div className="max-w-4xl max-h-full">
               <div className="relative">
                 <button
-                  className="absolute -top-12 right-0 text-white text-4xl hover:text-amber-400 transition-colors duration-200"
+                  className="absolute -top-12 right-0 text-white text-4xl hover:text-custom-orange transition-colors duration-200"
                   onClick={() => setSelectedImage(null)}
                 >
                   &times;
@@ -194,7 +194,7 @@ const Gallery = () => {
                   <h3 className="text-2xl font-bold mb-2">
                     {selectedImage.title}
                   </h3>
-                  <span className="inline-block bg-amber-500 text-white px-3 py-1 rounded-full text-sm capitalize">
+                  <span className="inline-block bg-custom-orange text-white px-3 py-1 rounded-full text-sm capitalize">
                     {selectedImage.category}
                   </span>
                 </div>

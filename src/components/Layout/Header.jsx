@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../../App";
+import logo from "../../assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,20 +25,15 @@ const Header = () => {
   );
 
   return (
-    <header className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-orange-100">
+    <header className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-secondary-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-bold text-xl">🍰</span>
+            <div className="w-12 h-12 bg-custom-orange rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+              <img src={logo} alt="Sliced Bliss"/>
             </div>
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                SlicedBliss
-              </h1>
-              <p className="text-xs text-gray-500 -mt-1">Bake House</p>
-            </div>
+            
           </Link>
 
           {/* Desktop Navigation */}
@@ -48,8 +44,8 @@ const Header = () => {
                 to={item.path}
                 className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                   location.pathname === item.path
-                    ? "bg-amber-500 text-white shadow-lg shadow-amber-200"
-                    : "text-gray-600 hover:text-amber-600 hover:bg-amber-50"
+                    ? "bg-custom-orange text-white shadow-lg shadow-primary-200"
+                    : "text-secondary-600 hover:text-custom-orange hover:bg-primary-50"
                 }`}
               >
                 {item.name}
@@ -62,7 +58,7 @@ const Header = () => {
             {/* Cart Icon */}
             <Link
               to="/order"
-              className="relative p-2 text-gray-600 hover:text-amber-600 transition-colors duration-200"
+              className="relative p-2 text-secondary-600 hover:text-custom-orange transition-colors duration-200"
             >
               <svg
                 className="w-6 h-6"
@@ -87,7 +83,7 @@ const Header = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-gray-600 hover:text-amber-600 hover:bg-amber-50 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-lg text-secondary-600 hover:text-custom-orange hover:bg-primary-50 transition-colors duration-200"
             >
               <svg
                 className="w-6 h-6"
@@ -117,7 +113,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-orange-100 bg-white/95 backdrop-blur-md rounded-2xl mt-2 shadow-lg">
+          <div className="lg:hidden py-4 border-t border-secondary-100 bg-white/95 backdrop-blur-md rounded-2xl mt-2 shadow-lg">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -126,8 +122,8 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
                     location.pathname === item.path
-                      ? "bg-amber-500 text-white shadow-lg"
-                      : "text-gray-600 hover:text-amber-600 hover:bg-amber-50"
+                      ? "bg-custom-orange text-white shadow-lg"
+                      : "text-secondary-600 hover:text-custom-orange hover:bg-primary-50"
                   }`}
                 >
                   {item.name}

@@ -59,7 +59,7 @@ const Redeem = () => {
   const giftCardAmounts = [25, 50, 75, 100, 150, 200];
 
   return (
-    <div className="min-h-screen py-12 bg-amber-50">
+    <div className="min-h-screen py-12 bg-gradient-light">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Gift Cards"
@@ -68,13 +68,13 @@ const Redeem = () => {
         />
 
         {/* Tab Navigation */}
-        <div className="flex border-b border-gray-200 mb-8">
+        <div className="flex border-b border-secondary-200 mb-8">
           <button
             onClick={() => setActiveTab("redeem")}
             className={`px-6 py-3 font-semibold border-b-2 transition-colors duration-200 ${
               activeTab === "redeem"
-                ? "border-amber-500 text-amber-600"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                ? "border-custom-orange text-custom-orange"
+                : "border-transparent text-secondary-500 hover:text-secondary-700"
             }`}
           >
             Redeem Gift Card
@@ -83,8 +83,8 @@ const Redeem = () => {
             onClick={() => setActiveTab("purchase")}
             className={`px-6 py-3 font-semibold border-b-2 transition-colors duration-200 ${
               activeTab === "purchase"
-                ? "border-amber-500 text-amber-600"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                ? "border-custom-orange text-custom-orange"
+                : "border-transparent text-secondary-500 hover:text-secondary-700"
             }`}
           >
             Purchase Gift Card
@@ -93,8 +93,8 @@ const Redeem = () => {
             onClick={() => setActiveTab("balance")}
             className={`px-6 py-3 font-semibold border-b-2 transition-colors duration-200 ${
               activeTab === "balance"
-                ? "border-amber-500 text-amber-600"
-                : "border-transparent text-gray-500 hover:text-gray-700"
+                ? "border-custom-orange text-custom-orange"
+                : "border-transparent text-secondary-500 hover:text-secondary-700"
             }`}
           >
             Check Balance
@@ -106,10 +106,10 @@ const Redeem = () => {
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
               <div className="text-4xl mb-4">🎁</div>
-              <h3 className="text-2xl font-bold text-amber-800 mb-2">
+              <h3 className="text-2xl font-bold text-secondary-800 mb-2">
                 Redeem Your Gift Card
               </h3>
-              <p className="text-gray-600">
+              <p className="text-secondary-600">
                 Enter your gift card code and PIN to redeem your balance
               </p>
             </div>
@@ -121,7 +121,7 @@ const Redeem = () => {
               <div>
                 <label
                   htmlFor="code"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-secondary-700 mb-2"
                 >
                   Gift Card Code *
                 </label>
@@ -132,7 +132,7 @@ const Redeem = () => {
                   value={giftCardData.code}
                   onChange={handleGiftCardChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                  className="form-input"
                   placeholder="Enter 16-digit code"
                 />
               </div>
@@ -140,7 +140,7 @@ const Redeem = () => {
               <div>
                 <label
                   htmlFor="pin"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-secondary-700 mb-2"
                 >
                   PIN *
                 </label>
@@ -151,7 +151,7 @@ const Redeem = () => {
                   value={giftCardData.pin}
                   onChange={handleGiftCardChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                  className="form-input"
                   placeholder="Enter 4-digit PIN"
                 />
               </div>
@@ -166,14 +166,16 @@ const Redeem = () => {
               </Button>
             </form>
 
-            <div className="mt-8 p-4 bg-amber-50 rounded-lg">
-              <h4 className="font-semibold text-amber-800 mb-2">Need Help?</h4>
-              <p className="text-sm text-amber-700">
+            <div className="mt-8 p-4 bg-primary-50 rounded-lg">
+              <h4 className="font-semibold text-secondary-800 mb-2">
+                Need Help?
+              </h4>
+              <p className="text-sm text-secondary-700">
                 If you're having trouble redeeming your gift card, please
                 contact us at
                 <a
                   href="mailto:giftcards@slicebliss.com"
-                  className="underline ml-1"
+                  className="text-custom-orange underline ml-1"
                 >
                   giftcards@slicebliss.com
                 </a>
@@ -187,10 +189,10 @@ const Redeem = () => {
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
               <div className="text-4xl mb-4">💝</div>
-              <h3 className="text-2xl font-bold text-amber-800 mb-2">
+              <h3 className="text-2xl font-bold text-secondary-800 mb-2">
                 Purchase a Gift Card
               </h3>
-              <p className="text-gray-600">
+              <p className="text-secondary-600">
                 Send the gift of delicious baked goods to someone special
               </p>
             </div>
@@ -201,7 +203,7 @@ const Redeem = () => {
             >
               {/* Amount Selection */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-4">
+                <label className="block text-sm font-medium text-secondary-700 mb-4">
                   Select Amount *
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -214,14 +216,14 @@ const Redeem = () => {
                       }
                       className={`p-4 border-2 rounded-lg text-center transition-colors duration-200 ${
                         purchaseData.amount === amount
-                          ? "border-amber-500 bg-amber-50 text-amber-700"
-                          : "border-gray-200 hover:border-amber-300"
+                          ? "border-custom-orange bg-primary-50 text-custom-orange"
+                          : "border-secondary-200 hover:border-custom-orange"
                       }`}
                     >
                       <div className="font-bold text-lg">${amount}</div>
                     </button>
                   ))}
-                  <div className="p-4 border-2 border-gray-200 rounded-lg">
+                  <div className="p-4 border-2 border-secondary-200 rounded-lg">
                     <input
                       type="number"
                       placeholder="Custom"
@@ -246,7 +248,7 @@ const Redeem = () => {
                 <div>
                   <label
                     htmlFor="recipientName"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-secondary-700 mb-2"
                   >
                     Recipient Name *
                   </label>
@@ -257,14 +259,14 @@ const Redeem = () => {
                     value={purchaseData.recipientName}
                     onChange={handlePurchaseChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                    className="form-input"
                     placeholder="Recipient's full name"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="recipientEmail"
-                    className="block text-sm font-medium text-gray-700 mb-2"
+                    className="block text-sm font-medium text-secondary-700 mb-2"
                   >
                     Recipient Email *
                   </label>
@@ -275,7 +277,7 @@ const Redeem = () => {
                     value={purchaseData.recipientEmail}
                     onChange={handlePurchaseChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                    className="form-input"
                     placeholder="recipient@example.com"
                   />
                 </div>
@@ -284,7 +286,7 @@ const Redeem = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-secondary-700 mb-2"
                 >
                   Personal Message (Optional)
                 </label>
@@ -294,21 +296,21 @@ const Redeem = () => {
                   value={purchaseData.message}
                   onChange={handlePurchaseChange}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                  className="form-input"
                   placeholder="Add a personal message for the recipient..."
                 />
               </div>
 
-              <div className="bg-amber-50 p-4 rounded-lg">
+              <div className="bg-primary-50 p-4 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-700">Gift Card Amount:</span>
+                  <span className="text-secondary-700">Gift Card Amount:</span>
                   <span className="font-semibold">
                     ${purchaseData.amount || "0"}
                   </span>
                 </div>
                 <div className="flex justify-between items-center font-bold text-lg">
                   <span>Total:</span>
-                  <span className="text-amber-600">
+                  <span className="text-custom-orange">
                     ${purchaseData.amount || "0"}
                   </span>
                 </div>
@@ -336,10 +338,10 @@ const Redeem = () => {
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <div className="text-center mb-8">
               <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-2xl font-bold text-amber-800 mb-2">
+              <h3 className="text-2xl font-bold text-secondary-800 mb-2">
                 Check Gift Card Balance
               </h3>
-              <p className="text-gray-600">
+              <p className="text-secondary-600">
                 Enter your gift card details to check the remaining balance
               </p>
             </div>
@@ -348,14 +350,14 @@ const Redeem = () => {
               <div>
                 <label
                   htmlFor="balanceCode"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-secondary-700 mb-2"
                 >
                   Gift Card Code *
                 </label>
                 <input
                   type="text"
                   id="balanceCode"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                  className="form-input"
                   placeholder="Enter 16-digit code"
                 />
               </div>
@@ -363,14 +365,14 @@ const Redeem = () => {
               <div>
                 <label
                   htmlFor="balancePin"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-secondary-700 mb-2"
                 >
                   PIN *
                 </label>
                 <input
                   type="text"
                   id="balancePin"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors duration-200"
+                  className="form-input"
                   placeholder="Enter 4-digit PIN"
                 />
               </div>
@@ -385,13 +387,13 @@ const Redeem = () => {
               </Button>
             </div>
 
-            <div className="mt-8 text-center text-gray-600">
+            <div className="mt-8 text-center text-secondary-600">
               <p>Don't have your gift card handy?</p>
               <p className="text-sm">
                 Visit our bakery or contact us at{" "}
                 <a
                   href="mailto:giftcards@slicebliss.com"
-                  className="text-amber-600 hover:text-amber-700"
+                  className="text-custom-orange hover:text-primary-600"
                 >
                   giftcards@slicebliss.com
                 </a>
@@ -404,28 +406,30 @@ const Redeem = () => {
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center p-6">
             <div className="text-3xl mb-4">🎂</div>
-            <h4 className="font-semibold text-amber-800 mb-2">
+            <h4 className="font-semibold text-secondary-800 mb-2">
               Perfect for Any Occasion
             </h4>
-            <p className="text-gray-600 text-sm">
+            <p className="text-secondary-600 text-sm">
               Birthdays, holidays, thank yous, or just because - our gift cards
               are always appreciated.
             </p>
           </div>
           <div className="text-center p-6">
             <div className="text-3xl mb-4">⚡</div>
-            <h4 className="font-semibold text-amber-800 mb-2">
+            <h4 className="font-semibold text-secondary-800 mb-2">
               Instant Delivery
             </h4>
-            <p className="text-gray-600 text-sm">
+            <p className="text-secondary-600 text-sm">
               E-gift cards delivered immediately via email. Physical cards
               available in-store.
             </p>
           </div>
           <div className="text-center p-6">
             <div className="text-3xl mb-4">∞</div>
-            <h4 className="font-semibold text-amber-800 mb-2">Never Expires</h4>
-            <p className="text-gray-600 text-sm">
+            <h4 className="font-semibold text-secondary-800 mb-2">
+              Never Expires
+            </h4>
+            <p className="text-secondary-600 text-sm">
               No expiration dates or fees. Your gift card is valid until the
               balance is used.
             </p>

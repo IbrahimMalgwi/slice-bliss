@@ -4,29 +4,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        amber: {
-          50: "#fffbeb",
-          100: "#fef3c7",
-          200: "#fde68a",
-          300: "#fcd34d",
-          400: "#fbbf24",
-          500: "#f59e0b",
-          600: "#d97706",
-          700: "#b45309",
-          800: "#92400e",
-          900: "#78350f",
+        primary: {
+          50: "#fef8ec",
+          100: "#fdefd2",
+          200: "#fbe0a5",
+          300: "#f8ca6d",
+          400: "#f5ad33",
+          500: "#f39c15", // Main primary color
+          600: "#e47c0c",
+          700: "#bd5d0c",
+          800: "#974912",
+          900: "#7a3c12",
         },
-        orange: {
-          50: "#fff7ed",
-          100: "#ffedd5",
-          200: "#fed7aa",
-          300: "#fdba74",
-          400: "#fb923c",
-          500: "#f97316",
-          600: "#ea580c",
-          700: "#c2410c",
-          800: "#9a3412",
-          900: "#7c2d12",
+        secondary: {
+          50: "#f7f7f7",
+          100: "#f0eeef",
+          200: "#ddd8da",
+          300: "#bfb6ba",
+          400: "#9b8e94",
+          500: "#7f7177",
+          600: "#685c62",
+          700: "#564c51",
+          800: "#3b2f33", // Main secondary color
+          900: "#2a2225",
+        },
+        // Custom colors for direct use
+        custom: {
+          orange: "#FCB330",
+          brown: "#3B2F33",
         },
       },
       fontFamily: {
@@ -64,51 +69,11 @@ module.exports = {
         },
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-      boxShadow: {
-        soft: "0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-        medium:
-          "0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 2px 10px -5px rgba(0, 0, 0, 0.05)",
-        large:
-          "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 30px -10px rgba(0, 0, 0, 0.1)",
-        "xl-soft":
-          "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      },
-      spacing: {
-        18: "4.5rem",
-        88: "22rem",
-        128: "32rem",
-      },
-      borderRadius: {
-        "4xl": "2rem",
-        "5xl": "2.5rem",
-      },
-      backdropBlur: {
-        xs: "2px",
+        "gradient-primary": "linear-gradient(135deg, #FCB330 0%, #f5ad33 100%)",
+        "gradient-primary-hover":
+          "linear-gradient(135deg, #f5ad33 0%, #e47c0c 100%)",
       },
     },
   },
-  plugins: [
-    // Remove the plugin imports if you don't want to install them
-    // function({ addUtilities }) {
-    //   const newUtilities = {
-    //     '.text-shadow': {
-    //       textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    //     },
-    //     '.text-shadow-md': {
-    //       textShadow: '0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08)',
-    //     },
-    //     '.text-shadow-lg': {
-    //       textShadow: '0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08)',
-    //     },
-    //     '.text-shadow-none': {
-    //       textShadow: 'none',
-    //     },
-    //   }
-    //   addUtilities(newUtilities)
-    // }
-  ],
+  plugins: [],
 };
