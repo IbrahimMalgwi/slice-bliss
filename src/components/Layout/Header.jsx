@@ -34,7 +34,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                SliceBliss
+                SlicedBliss
               </h1>
               <p className="text-xs text-gray-500 -mt-1">Bake House</p>
             </div>
