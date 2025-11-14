@@ -70,7 +70,7 @@ const About = () => {
               The Beginning
             </h3>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              SliceBliss Bake House started in 2015 when founder Sarah Johnson
+              SliceBliss Bake House started in 2023 when founder Sarah Johnson
               decided to turn her lifelong passion for baking into a business.
               What began as a small home-based operation quickly grew through
               word-of-mouth and the undeniable quality of her creations.
