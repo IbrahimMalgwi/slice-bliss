@@ -13,6 +13,7 @@ const Contact = () => {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
 
     const handleChange = (e) => {
         setFormData({
@@ -21,31 +22,51 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitStatus(null);
 
-        // Create form data for email submission
-        const form = e.target;
-        const formData = new FormData(form);
+        try {
+            // Method 1: Direct form submission (most reliable)
+            const form = e.target;
 
-        // You can use FormSubmit.co, Formspree, or traditional mailto
-        // Option 1: Using FormSubmit.co (recommended - free service)
-        form.action = "https://formsubmit.co/hello@slicedblissbakehouse.com";
-        form.method = "POST";
+            // Create hidden iframe to handle submission without page reload
+            const iframe = document.createElement('iframe');
+            iframe.name = 'form-submission-iframe';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
 
-        // Add additional form data for better email formatting
-        formData.append("_subject", `New Contact Form: ${formData.subject}`);
-        formData.append("_template", "table");
-        formData.append("_captcha", "false");
-        formData.append("_next", window.location.origin + "/thank-you"); // Optional: redirect after success
+            // Set form attributes for FormSubmit.co
+            form.action = "https://formsubmit.co/hello@slicedblissbakehouse.com";
+            form.method = "POST";
+            form.target = "form-submission-iframe";
 
-        // Submit the form
-        form.submit();
+            // Add hidden fields
+            const hiddenFields = {
+                '_subject': `New Contact Form: ${formData.subject}`,
+                '_template': 'table',
+                '_captcha': 'false',
+                '_autoresponse': 'Thank you for contacting SlicedBliss BakeHouse! We will get back to you within 24 hours.'
+            };
 
-        // Optional: Show success message
-        setTimeout(() => {
-            alert("Thank you for your message! We'll get back to you soon.");
+            // Add hidden inputs to form
+            Object.entries(hiddenFields).forEach(([key, value]) => {
+                let hiddenInput = form.querySelector(`[name="${key}"]`);
+                if (!hiddenInput) {
+                    hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = key;
+                    form.appendChild(hiddenInput);
+                }
+                hiddenInput.value = value;
+            });
+
+            // Submit the form
+            form.submit();
+
+            // Success - user stays on page
+            setSubmitStatus("success");
             setFormData({
                 name: "",
                 email: "",
@@ -53,8 +74,18 @@ const Contact = () => {
                 subject: "",
                 message: "",
             });
+
+            // Clean up iframe after submission
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 5000);
+
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setSubmitStatus("error");
+        } finally {
             setIsSubmitting(false);
-        }, 1000);
+        }
     };
 
     const contactInfo = [
@@ -109,9 +140,9 @@ const Contact = () => {
                             <div className="space-y-6 mb-8">
                                 {contactInfo.map((item, index) => (
                                     <div key={index} className="flex items-start space-x-4">
-                    <span className="text-2xl text-custom-orange">
-                      {item.icon}
-                    </span>
+                                        <span className="text-2xl text-custom-orange">
+                                            {item.icon}
+                                        </span>
                                         <div>
                                             <h4 className="font-semibold text-secondary-800 mb-1">
                                                 {item.title}
@@ -185,12 +216,32 @@ const Contact = () => {
                                 Send us a Message
                             </h3>
 
-                            <form onSubmit={handleSubmit} className="space-y-6">
-                                {/* Add hidden form fields for FormSubmit.co */}
-                                <input type="hidden" name="_captcha" value="false" />
-                                <input type="hidden" name="_template" value="table" />
-                                <input type="hidden" name="_subject" value="New Contact Form Submission from SlicedBliss Website" />
+                            {/* Status Messages */}
+                            {submitStatus === "success" && (
+                                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                                    <div className="flex items-center text-green-800">
+                                        <span className="text-lg mr-2">✅</span>
+                                        <span className="font-semibold">Message sent successfully!</span>
+                                    </div>
+                                    <p className="text-green-700 text-sm mt-1">
+                                        Thank you for your message! We'll get back to you within 24 hours.
+                                    </p>
+                                </div>
+                            )}
 
+                            {submitStatus === "error" && (
+                                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                                    <div className="flex items-center text-red-800">
+                                        <span className="text-lg mr-2">❌</span>
+                                        <span className="font-semibold">Failed to send message</span>
+                                    </div>
+                                    <p className="text-red-700 text-sm mt-1">
+                                        Please try again or contact us directly via WhatsApp/phone.
+                                    </p>
+                                </div>
+                            )}
+
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label
@@ -208,6 +259,7 @@ const Contact = () => {
                                             required
                                             className="form-input"
                                             placeholder="Your full name"
+                                            disabled={isSubmitting}
                                         />
                                     </div>
                                     <div>
@@ -226,6 +278,7 @@ const Contact = () => {
                                             required
                                             className="form-input"
                                             placeholder="your.email@example.com"
+                                            disabled={isSubmitting}
                                         />
                                     </div>
                                 </div>
@@ -246,6 +299,7 @@ const Contact = () => {
                                             onChange={handleChange}
                                             className="form-input"
                                             placeholder="+234 803 412 9272"
+                                            disabled={isSubmitting}
                                         />
                                     </div>
                                     <div>
@@ -262,6 +316,7 @@ const Contact = () => {
                                             onChange={handleChange}
                                             required
                                             className="form-input"
+                                            disabled={isSubmitting}
                                         >
                                             <option value="">Select a subject</option>
                                             <option value="General Inquiry">General Inquiry</option>
@@ -289,6 +344,7 @@ const Contact = () => {
                                         rows={6}
                                         className="form-input"
                                         placeholder="Tell us how we can help you..."
+                                        disabled={isSubmitting}
                                     />
                                 </div>
 
@@ -299,7 +355,14 @@ const Contact = () => {
                                     className="w-full"
                                     disabled={isSubmitting}
                                 >
-                                    {isSubmitting ? "Sending..." : "Send Message"}
+                                    {isSubmitting ? (
+                                        <>
+                                            <span className="animate-spin mr-2">⏳</span>
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        "Send Message"
+                                    )}
                                 </Button>
                             </form>
                         </div>
