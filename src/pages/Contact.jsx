@@ -62,7 +62,7 @@ const Contact = () => {
 
   const socialLinks = [
       { name: "Instagram", url: "https://instagram.com/_slicedblissbakehouse_", icon: "📷" },
-      { name: "WhatsApp", url: "https://wa.me/23480341209272", icon: "💬" },
+      { name: "WhatsApp", url: "https://wa.me/2348034129272", icon: "💬" },
   ];
 
   return (
