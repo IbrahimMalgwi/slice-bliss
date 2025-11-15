@@ -155,3 +155,8 @@
 .animate-slide-in-top {
     animation: slideInFromTop 0.8s ease-out;
 }
+
+
+iframe:not([src=""]) ~ .map-loading {
+    display: none;
+}

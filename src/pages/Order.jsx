@@ -1,13 +1,45 @@
 // pages/Order.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { products } from "../data/products";
 import Button from "../components/UI/Button";
 
-const Order = () => {
-    const [cart, setCart] = useState([]);
-    const [selectedSizes, setSelectedSizes] = useState({});
+// Helper functions for localStorage
+const CART_STORAGE_KEY = 'slicedbliss_cart';
+const SIZES_STORAGE_KEY = 'slicedbliss_selected_sizes';
 
-    // Format price in Nigerian Naira - FIXED: Removed division by 100
+const loadFromStorage = (key, defaultValue = []) => {
+    try {
+        const item = window.localStorage.getItem(key);
+        return item ? JSON.parse(item) : defaultValue;
+    } catch (error) {
+        console.error(`Error loading ${key} from localStorage:`, error);
+        return defaultValue;
+    }
+};
+
+const saveToStorage = (key, data) => {
+    try {
+        window.localStorage.setItem(key, JSON.stringify(data));
+    } catch (error) {
+        console.error(`Error saving ${key} to localStorage:`, error);
+    }
+};
+
+const Order = () => {
+    // Initialize state from localStorage
+    const [cart, setCart] = useState(() => loadFromStorage(CART_STORAGE_KEY, []));
+    const [selectedSizes, setSelectedSizes] = useState(() => loadFromStorage(SIZES_STORAGE_KEY, {}));
+
+    // Save to localStorage whenever cart or selectedSizes changes
+    useEffect(() => {
+        saveToStorage(CART_STORAGE_KEY, cart);
+    }, [cart]);
+
+    useEffect(() => {
+        saveToStorage(SIZES_STORAGE_KEY, selectedSizes);
+    }, [selectedSizes]);
+
+    // Format price in Nigerian Naira
     const formatPrice = (price) => {
         return `₦${price.toLocaleString()}`;
     };
@@ -41,14 +73,18 @@ const Order = () => {
                 item => item.id === cartItem.id && item.selectedSize === cartItem.selectedSize
             );
 
+            let newCart;
             if (existingItemIndex > -1) {
-                return prevCart.map((item, index) =>
+                newCart = prevCart.map((item, index) =>
                     index === existingItemIndex
                         ? { ...item, quantity: item.quantity + 1 }
                         : item
                 );
+            } else {
+                newCart = [...prevCart, { ...cartItem, quantity: 1 }];
             }
-            return [...prevCart, { ...cartItem, quantity: 1 }];
+
+            return newCart;
         });
     };
 
@@ -56,10 +92,27 @@ const Order = () => {
         setCart((prevCart) =>
             prevCart.filter((item) => !(item.id === productId && item.selectedSize === size))
         );
+
+        // Also remove the selected size if no items of that product-size combination remain
+        setSelectedSizes(prev => {
+            const hasOtherItems = cart.some(item =>
+                item.id === productId && item.selectedSize === size
+            );
+            if (!hasOtherItems) {
+                const newSizes = { ...prev };
+                delete newSizes[productId];
+                return newSizes;
+            }
+            return prev;
+        });
     };
 
     const updateQuantity = (productId, size, newQuantity) => {
-        if (newQuantity < 1) return;
+        if (newQuantity < 1) {
+            removeFromCart(productId, size);
+            return;
+        }
+
         setCart((prevCart) =>
             prevCart.map((item) =>
                 item.id === productId && item.selectedSize === size
@@ -77,6 +130,12 @@ const Order = () => {
         return cart.reduce((total, item) => total + item.quantity, 0);
     };
 
+    // Function to clear cart after successful checkout
+    const clearCart = () => {
+        setCart([]);
+        setSelectedSizes({});
+    };
+
     const openWhatsAppOrder = () => {
         if (cart.length === 0) {
             alert("Your cart is empty!");
@@ -89,6 +148,21 @@ const Order = () => {
 
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/2345551234567?text=${encodedMessage}`, '_blank');
+
+        // Clear cart after sending WhatsApp order
+        clearCart();
+
+        // Optional: Show confirmation message
+        setTimeout(() => {
+            alert("Order sent! Your cart has been cleared. We'll contact you shortly to confirm your order.");
+        }, 1000);
+    };
+
+    // Add a clear cart button for testing
+    const handleClearCart = () => {
+        if (window.confirm("Are you sure you want to clear your cart?")) {
+            clearCart();
+        }
     };
 
     return (
@@ -192,11 +266,22 @@ const Order = () => {
                                 <h2 className="text-2xl font-bold text-secondary-800">
                                     Your Order
                                 </h2>
-                                {getItemCount() > 0 && (
-                                    <span className="bg-custom-orange text-white text-sm px-2 py-1 rounded-full">
-                                        {getItemCount()} item{getItemCount() !== 1 ? 's' : ''}
-                                    </span>
-                                )}
+                                <div className="flex items-center gap-2">
+                                    {getItemCount() > 0 && (
+                                        <span className="bg-custom-orange text-white text-sm px-2 py-1 rounded-full">
+                                            {getItemCount()} item{getItemCount() !== 1 ? 's' : ''}
+                                        </span>
+                                    )}
+                                    {cart.length > 0 && (
+                                        <button
+                                            onClick={handleClearCart}
+                                            className="text-red-500 hover:text-red-700 text-sm"
+                                            title="Clear cart"
+                                        >
+                                            🗑️ Clear
+                                        </button>
+                                    )}
+                                </div>
                             </div>
 
                             {cart.length === 0 ? (
@@ -290,7 +375,7 @@ const Order = () => {
 
                                         <div className="mt-4 text-center">
                                             <p className="text-secondary-500 text-sm">
-                                                Need help? Call us at <a href="tel:+2345551234567" className="text-custom-orange hover:underline">+234 555 123 4567</a>
+                                                Need help? Call us at <a href="tel:+2348034129272" className="text-custom-orange hover:underline">+234 803 412 9272</a>
                                             </p>
                                         </div>
                                     </div>
