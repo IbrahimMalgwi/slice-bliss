@@ -16,9 +16,9 @@ const Home = () => {
         window.open(mapsUrl, "_blank");
     };
 
-    // Format price in Nigerian Naira
+    // Format price in Nigerian Naira - REMOVED DIVISION BY 100
     const formatPrice = (price) => {
-        return `₦${(price / 100).toLocaleString()}`;
+        return `₦${price.toLocaleString()}`;
     };
 
     // Get minimum price for products with multiple sizes
@@ -208,23 +208,23 @@ const Home = () => {
             </section>
 
             {/* Special Offer Banner */}
-            <section className="py-12 bg-secondary-800">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="text-white text-left">
-                            <h3 className="text-2xl font-bold mb-2">🎉 Special Launch Offer!</h3>
-                            <p className="text-primary-200">
-                                Get 10% off when you order 3 or more banana bread loaves
-                            </p>
-                        </div>
-                        <Link to="/order">
-                            <Button variant="secondary" size="large">
-                                Claim Offer Now
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            {/*<section className="py-12 bg-secondary-800">*/}
+            {/*    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">*/}
+            {/*        <div className="flex flex-col md:flex-row items-center justify-between gap-6">*/}
+            {/*            <div className="text-white text-left">*/}
+            {/*                <h3 className="text-2xl font-bold mb-2">🎉 Special Launch Offer!</h3>*/}
+            {/*                <p className="text-primary-200">*/}
+            {/*                    Get 10% off when you order 3 or more banana bread loaves*/}
+            {/*                </p>*/}
+            {/*            </div>*/}
+            {/*            <Link to="/order">*/}
+            {/*                <Button variant="secondary" size="large">*/}
+            {/*                    Claim Offer Now*/}
+            {/*                </Button>*/}
+            {/*            </Link>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
 
             {/* CTA Section */}
             <section className="py-20 bg-custom-orange">
