@@ -11,7 +11,7 @@ const Home = () => {
 
     // Function to open Google Maps with directions
     const openGoogleMaps = () => {
-        const address = "123+Bakery+Street+Sweet+City+SC+12345";
+        const address = "27 Femi Adebule Street, Folagoro, Shomulu Lagos";
         const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${address}`;
         window.open(mapsUrl, "_blank");
     };

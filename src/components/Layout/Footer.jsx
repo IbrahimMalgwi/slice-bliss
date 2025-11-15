@@ -5,9 +5,10 @@ import logo from "../../assets/logo.png";
 
 const Footer = () => {
   const socialPlatforms = [
-    { name: "Instagram", url: "https://instagram.com/slicebliss", icon: "📷" },
-    { name: "Facebook", url: "https://facebook.com/slicebliss", icon: "👥" },
-    { name: "Twitter", url: "https://twitter.com/slicebliss", icon: "🐦" },
+    { name: "Instagram", url: "https://instagram.com/_slicedblissbakehouse_", icon: "📷" },
+      { name: "WhatsApp", url: "https://wa.me/23480341209272", icon: "💬" },
+    // { name: "Facebook", url: "https://facebook.com/slicebliss", icon: "👥" },
+    // { name: "Twitter", url: "https://twitter.com/slicebliss", icon: "🐦" },
   ];
 
   const quickLinks = [
@@ -31,7 +32,7 @@ const Footer = () => {
             </div>
             <p className="text-secondary-300 mb-6 max-w-md text-lg leading-relaxed">
               Creating sweet moments and delicious memories with every bake.
-              Fresh, quality ingredients in every bite since 2015.
+              Fresh, quality ingredients in every bite since 2022.
             </p>
             <div className="flex space-x-4">
               {socialPlatforms.map((platform) => (
@@ -77,33 +78,33 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <span className="text-custom-orange">📍</span>
                 <div>
-                  <p>123 Bakery Street</p>
-                  <p>Sweet City, SC 12345</p>
+                  <p>27 Femi Adebule Street, Folagoro, </p>
+                  <p>Shomulu Lagos</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-custom-orange">📞</span>
                 <a
-                  href="tel:+15551234567"
+                  href="+234 803n412 9272"
                   className="hover:text-primary-300 transition-colors duration-200"
                 >
-                  +1 (555) 123-4567
+                    +234 803 412 9272
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="text-custom-orange">✉️</span>
                 <a
-                  href="mailto:hello@slicebliss.com"
+                  href="mailto:hello@slicedblissbakehouse.com"
                   className="hover:text-primary-300 transition-colors duration-200"
                 >
-                  hello@slicebliss.com
+                  hello@slicedblissbakehouse.com
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <span className="text-custom-orange">🕒</span>
                 <div>
-                  <p>Monday - Sunday</p>
-                  <p>7:00 AM - 8:00 PM</p>
+                  <p>Monday - Saturday</p>
+                  <p>9:00 AM - 5:00 PM</p>
                 </div>
               </div>
             </div>
@@ -112,7 +113,7 @@ const Footer = () => {
 
         <div className="border-t border-secondary-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-secondary-400 text-center md:text-left">
-            &copy; 2024 SliceBliss Bake House. All rights reserved.
+            &copy; 2025 SlicedBliss Bake House. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a
