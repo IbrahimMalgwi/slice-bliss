@@ -7,9 +7,9 @@ const Order = () => {
     const [cart, setCart] = useState([]);
     const [selectedSizes, setSelectedSizes] = useState({});
 
-    // Format price in Nigerian Naira
+    // Format price in Nigerian Naira - FIXED: Removed division by 100
     const formatPrice = (price) => {
-        return `₦${(price / 100).toLocaleString()}`;
+        return `₦${price.toLocaleString()}`;
     };
 
     const handleSizeSelect = (productId, size) => {
@@ -194,8 +194,8 @@ const Order = () => {
                                 </h2>
                                 {getItemCount() > 0 && (
                                     <span className="bg-custom-orange text-white text-sm px-2 py-1 rounded-full">
-                    {getItemCount()} item{getItemCount() !== 1 ? 's' : ''}
-                  </span>
+                                        {getItemCount()} item{getItemCount() !== 1 ? 's' : ''}
+                                    </span>
                                 )}
                             </div>
 
@@ -231,8 +231,8 @@ const Order = () => {
                                                         -
                                                     </button>
                                                     <span className="w-8 text-center font-semibold">
-                            {item.quantity}
-                          </span>
+                                                        {item.quantity}
+                                                    </span>
                                                     <button
                                                         onClick={() => updateQuantity(item.id, item.selectedSize, item.quantity + 1)}
                                                         className="w-8 h-8 rounded-full bg-secondary-100 hover:bg-secondary-200 flex items-center justify-center transition-colors duration-200"
@@ -270,8 +270,8 @@ const Order = () => {
                                         <div className="flex justify-between items-center mb-4 text-lg">
                                             <span className="font-semibold text-secondary-800">Total:</span>
                                             <span className="text-xl font-bold text-custom-orange">
-                        {formatPrice(getTotalPrice())}
-                      </span>
+                                                {formatPrice(getTotalPrice())}
+                                            </span>
                                         </div>
 
                                         <div className="space-y-3">

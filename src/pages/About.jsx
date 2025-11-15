@@ -1,29 +1,29 @@
 // pages/About.jsx
 import React from "react";
 import SectionTitle from "../components/UI/SectionTitle";
+import ceo from "../assets/ceo.jpeg"
+import manager from "../assets/manager.jpeg"
 
 const About = () => {
   const teamMembers = [
     {
-      name: "Sarah Johnson",
-      role: "Head Baker & Founder",
-      bio: "With over 15 years of baking experience, Sarah brings passion and creativity to every recipe.",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+      name: "Mrs. Chinyere Ayeni ",
+      role: "Founder & CEO",
+      bio: "With many experience, She brings passion and creativity to every recipe.",
+      image: ceo
+
     },
     {
-      name: "Michael Chen",
-      role: "Pastry Chef",
-      bio: "Michael specializes in French patisserie and brings international flair to our dessert selection.",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      name: "Precious Anekwu",
+      role: "Manager",
+      bio: "With years of experience in baking and management",
+      image: manager
     },
     {
-      name: "Emily Rodriguez",
-      role: "Customer Experience Manager",
-      bio: "Emily ensures every customer feels welcomed and leaves with a smile.",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      name: "Toyin Falegon",
+      role: "Pastry Chef & Baker",
+      bio: "With years of baking experience, Sarah brings passion and creativity to every recipe",
+      image:manager
     },
   ];
 

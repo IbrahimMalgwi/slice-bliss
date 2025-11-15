@@ -6,8 +6,9 @@ const ProductCard = ({ product, onAddToCart }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [selectedSize, setSelectedSize] = useState(product.variants ? product.variants[0] : null);
 
+    // Format price in Nigerian Naira - FIXED: Removed division by 100
     const formatPrice = (price) => {
-        return `₦${(price / 100).toLocaleString()}`;
+        return `₦${price.toLocaleString()}`;
     };
 
     const getCurrentPrice = () => {
@@ -21,7 +22,8 @@ const ProductCard = ({ product, onAddToCart }) => {
         const cartItem = {
             ...product,
             selectedSize: selectedSize,
-            price: getCurrentPrice()
+            price: getCurrentPrice(),
+            displayName: selectedSize ? `${product.name} (${selectedSize})` : product.name
         };
         onAddToCart(cartItem);
     };
