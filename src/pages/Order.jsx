@@ -1,7 +1,6 @@
 // pages/Order.jsx
 import React, { useState, useEffect } from "react";
 import { products } from "../data/products";
-import Button from "../components/UI/Button";
 
 // Helper functions for localStorage
 const CART_STORAGE_KEY = 'slicedbliss_cart';
@@ -147,7 +146,7 @@ const Order = () => {
         ).join('\n')}\n\nTotal: ${formatPrice(getTotalPrice())}\n\nName: [Your Name]\nPhone: [Your Phone]\nAddress: [Your Address]`;
 
         const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/2345551234567?text=${encodedMessage}`, '_blank');
+        window.open(`https://wa.me/2348034129272?text=${encodedMessage}`, '_blank');
 
         // Clear cart after sending WhatsApp order
         clearCart();
@@ -347,7 +346,8 @@ const Order = () => {
                                             <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
                                                 <div className="flex items-center text-green-800 text-sm">
                                                     <span className="mr-2">🎉</span>
-                                                    You qualify for 10% off! (Applied at checkout)
+                                                    {/*You qualify for 10% off! (Applied at checkout)*/}
+                                                    enjoy the blissful goodness in every slice
                                                 </div>
                                             </div>
                                         )}

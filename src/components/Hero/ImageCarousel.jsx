@@ -1,5 +1,5 @@
 // components/Hero/ImageCarousel.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 
 // Import your local assets
 import hero1 from "../../assets/hero1.jpeg";
@@ -10,7 +10,8 @@ const ImageCarousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const videoRef = useRef(null);
 
-    const slides = [
+    // Use useMemo to memoize the slides array and prevent unnecessary re-renders
+    const slides = useMemo(() => [
         {
             type: "image",
             src: hero1,
@@ -32,7 +33,7 @@ const ImageCarousel = () => {
             description: "Watch our banana bread magic come to life in our bakery",
             buttonText: "Order Now"
         }
-    ];
+    ], []); // Empty dependency array means this only runs once
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -40,7 +41,7 @@ const ImageCarousel = () => {
         }, 6000); // Increased to 6 seconds for better video viewing
 
         return () => clearInterval(timer);
-    }, [slides.length]);
+    }, [slides.length]); // Now slides.length is stable
 
     // Handle video play/pause when slide changes
     useEffect(() => {
@@ -141,8 +142,8 @@ const ImageCarousel = () => {
                     >
                         {slide.type === "video" ? (
                             <span className={`text-sm ${index === currentSlide ? 'text-white' : 'text-gray-700'}`}>
-                🎥
-              </span>
+                                🎥
+                            </span>
                         ) : (
                             <div className={`w-2 h-2 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-gray-600'}`}></div>
                         )}
