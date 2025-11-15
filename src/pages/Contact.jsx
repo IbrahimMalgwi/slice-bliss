@@ -44,7 +44,7 @@ const Contact = () => {
       icon: "📞",
       title: "Call Us",
       details: ["+234 803 412 9272", "Mon-Sat: 9AM-5PM"],
-      link: "tel:+15551234567",
+      link: "tel:+234 803 412 9272",
     },
     {
       icon: "✉️",
@@ -130,22 +130,24 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* WhatsApp Quick Action */}
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mt-6 text-center">
-              <div className="text-3xl mb-3">💬</div>
-              <h4 className="font-semibold text-green-800 mb-2">
-                Quick Questions?
-              </h4>
-              <p className="text-green-700 text-sm mb-4">
-                Message us directly on WhatsApp for quick responses!
-              </p>
-              <a
-                href="https://wa.me/+23480341209272"
-                className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors duration-200"
-              >
-                Chat on WhatsApp
-              </a>
-            </div>
+              {/* WhatsApp Quick Action */}
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mt-6 text-center">
+                  <div className="text-3xl mb-3">💬</div>
+                  <h4 className="font-semibold text-green-800 mb-2">
+                      Quick Questions?
+                  </h4>
+                  <p className="text-green-700 text-sm mb-4">
+                      Message us directly on WhatsApp for quick responses!
+                  </p>
+                  <a
+                      href="https://wa.me/+2348034129272"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors duration-200"
+                  >
+                      Chat on WhatsApp
+                  </a>
+              </div>
           </div>
 
           {/* Contact Form */}
