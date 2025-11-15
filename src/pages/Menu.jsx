@@ -62,18 +62,18 @@ const Menu = () => {
                 </div>
 
                 {/* Special Offers */}
-                <div className="bg-custom-orange rounded-3xl p-8 text-center text-white shadow-2xl shadow-primary-200">
-                    <div className="max-w-2xl mx-auto">
-                        <div className="text-4xl mb-4">🎉</div>
-                        <h3 className="text-3xl font-bold mb-4">Special Offer!</h3>
-                        <p className="text-xl mb-6 opacity-90">
-                            Get 10% off when you order 3 or more banana bread loaves!
-                        </p>
-                        <button className="bg-white text-secondary-900 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl">
-                            Claim Your Discount
-                        </button>
-                    </div>
-                </div>
+                {/*<div className="bg-custom-orange rounded-3xl p-8 text-center text-white shadow-2xl shadow-primary-200">*/}
+                {/*    <div className="max-w-2xl mx-auto">*/}
+                {/*        <div className="text-4xl mb-4">🎉</div>*/}
+                {/*        <h3 className="text-3xl font-bold mb-4">Special Offer!</h3>*/}
+                {/*        <p className="text-xl mb-6 opacity-90">*/}
+                {/*            Get 10% off when you order 3 or more banana bread loaves!*/}
+                {/*        </p>*/}
+                {/*        <button className="bg-white text-secondary-900 px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl">*/}
+                {/*            Claim Your Discount*/}
+                {/*        </button>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </div>
     );

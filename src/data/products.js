@@ -1,4 +1,18 @@
 // data/products.js
+import plain from "../assets/plain.jpeg"
+import coconutflakes from "../assets/coconutflakes.jpeg"
+import nuttymix from "../assets/nuttymix.jpeg"
+import  almond from "../assets/almonds.jpeg"
+import raising from "../assets/raisingbanana.jpeg"
+import raisingandalmond from "../assets/raisingsandalmonds.jpeg"
+import chocolatechips from "../assets/chocolatechips.jpeg"
+import chocolatechunks from "../assets/chocolatechunks.jpeg"
+import marble from "../assets/marble.jpeg"
+import doublechoco from "../assets/doublechoco.jpeg"
+import oreos from "../assets/oreos.jpeg"
+import carrotbanana from "../assets/carrotbanana.jpeg"
+import orange from "../assets/orange.jpeg"
+
 export const products = [
     {
         id: 1,
@@ -9,7 +23,7 @@ export const products = [
             midi: 4600,
             regular: 6400
         },
-        image: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        image: plain,
         category: "banana-bread",
         featured: true,
         variants: ["mini", "midi", "regular"]
@@ -23,7 +37,7 @@ export const products = [
             midi: 5350,
             regular: 7500
         },
-        image: "https://images.unsplash.com/photo-1574085732737-2bc3c7f1949c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: coconutflakes,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -37,7 +51,7 @@ export const products = [
             midi: 6250,
             regular: 8700
         },
-        image: "https://images.unsplash.com/photo-1607478900766-3c8f6e13bb71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        image: nuttymix,
         category: "banana-bread",
         featured: true,
         variants: ["mini", "midi", "regular"]
@@ -51,7 +65,7 @@ export const products = [
             midi: 5400,
             regular: 7850
         },
-        image: "https://images.unsplash.com/photo-1623241898119-0072e973c6d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: almond,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -65,7 +79,7 @@ export const products = [
             midi: 5300,
             regular: 7300
         },
-        image: "https://images.unsplash.com/photo-1579705745811-a39f6d0beb1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: raising,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -79,7 +93,7 @@ export const products = [
             midi: 5800,
             regular: 8000
         },
-        image: "https://images.unsplash.com/photo-1607478900766-3c8f6e13bb71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: raisingandalmond,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -93,7 +107,7 @@ export const products = [
             midi: 5600,
             regular: 7650
         },
-        image: "https://images.unsplash.com/photo-1571772996231-1d4b43aebad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: chocolatechips,
         category: "banana-bread",
         featured: true,
         variants: ["mini", "midi", "regular"]
@@ -107,7 +121,7 @@ export const products = [
             midi: 5700,
             regular: 7800
         },
-        image: "https://images.unsplash.com/photo-1607478900766-3c8f6e13bb71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: chocolatechunks,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -121,7 +135,7 @@ export const products = [
             midi: 5500,
             regular: 7700
         },
-        image: "https://images.unsplash.com/photo-1574085732737-2bc3c7f1949c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: marble,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -135,7 +149,7 @@ export const products = [
             midi: 6500,
             regular: 8450
         },
-        image: "https://images.unsplash.com/photo-1571772996231-1d4b43aebad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: doublechoco,
         category: "banana-bread",
         featured: true,
         variants: ["mini", "midi", "regular"]
@@ -149,7 +163,7 @@ export const products = [
             midi: 5700,
             regular: 7800
         },
-        image: "https://images.unsplash.com/photo-1574085732737-2bc3c7f1949c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: oreos,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -163,7 +177,7 @@ export const products = [
             midi: 5300,
             regular: 7400
         },
-        image: "https://images.unsplash.com/photo-1596223506389-38a8c706d0c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        image: carrotbanana,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
@@ -177,7 +191,7 @@ export const products = [
             midi: 5300,
             regular: 7400
         },
-        image: "https://images.unsplash.com/photo-1579705745811-a39f6d0beb1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        image: orange,
         category: "banana-bread",
         featured: false,
         variants: ["mini", "midi", "regular"]
