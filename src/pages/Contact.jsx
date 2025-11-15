@@ -37,34 +37,32 @@ const Contact = () => {
     {
       icon: "📍",
       title: "Visit Us",
-      details: ["123 Bakery Street", "Sweet City, SC 12345"],
+      details: ["27 Femi Adebule Street", "Folagoro, Shomolu Lagos"],
       link: "https://maps.google.com",
     },
     {
       icon: "📞",
       title: "Call Us",
-      details: ["+1 (555) 123-4567", "Mon-Sun: 7AM-8PM"],
+      details: ["+234 803 412 9272", "Mon-Sat: 9AM-5PM"],
       link: "tel:+15551234567",
     },
     {
       icon: "✉️",
       title: "Email Us",
-      details: ["hello@slicebliss.com", "orders@slicebliss.com"],
-      link: "mailto:hello@slicebliss.com",
+      details: ["hello@slicedblissbakehouse.com", "orders@slicedblissbakehouse.com"],
+      link: "mailto:hello@slicedblissbakehouse.com",
     },
     {
       icon: "🕒",
       title: "Opening Hours",
-      details: ["Monday - Sunday:", "7:00 AM - 8:00 PM"],
+      details: ["Monday - Saturday:", "9:00 AM - 5:00 PM"],
       link: null,
     },
   ];
 
   const socialLinks = [
-    { name: "Instagram", icon: "📷", url: "https://instagram.com/slicebliss" },
-    { name: "Facebook", icon: "👥", url: "https://facebook.com/slicebliss" },
-    { name: "Twitter", icon: "🐦", url: "https://twitter.com/slicebliss" },
-    { name: "WhatsApp", icon: "💬", url: "https://wa.me/15551234567" },
+      { name: "Instagram", url: "https://instagram.com/_slicedblissbakehouse_", icon: "📷" },
+      { name: "WhatsApp", url: "https://wa.me/23480341209272", icon: "💬" },
   ];
 
   return (
@@ -142,7 +140,7 @@ const Contact = () => {
                 Message us directly on WhatsApp for quick responses!
               </p>
               <a
-                href="https://wa.me/15551234567?text=Hi%20SliceBliss!%20I%20have%20a%20question%20about..."
+                href="https://wa.me/+23480341209272"
                 className="inline-block bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-colors duration-200"
               >
                 Chat on WhatsApp
@@ -212,7 +210,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="form-input"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+234 803 412 9272"
                     />
                   </div>
                   <div>
@@ -271,12 +269,19 @@ const Contact = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="bg-secondary-200 rounded-2xl h-64 mt-8 flex items-center justify-center">
-              <div className="text-center text-secondary-600">
-                <div className="text-4xl mb-2">🗺️</div>
-                <p>Interactive Map Would Appear Here</p>
+              <div className="rounded-2xl h-96 mt-8 overflow-hidden shadow-lg">
+                  <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.9550777398954!2d3.3796259758010327!3d6.52735809346528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d00f8ea116f%3A0x4e888eeab0699b2b!2s27%20Femi%20Adebule%20Street%2C%20Igbobi%2C%20Lagos%20102216%2C%20Lagos!5e0!3m2!1sen!2sng!4v1763229444141!5m2!1sen!2sng"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="SlicedBliss BakeHouse Location"
+                      className="w-full h-full"
+                  ></iframe>
               </div>
-            </div>
           </div>
         </div>
       </div>

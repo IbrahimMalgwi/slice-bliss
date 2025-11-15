@@ -6,7 +6,7 @@ import logo from "../../assets/logo.png";
 const Footer = () => {
   const socialPlatforms = [
     { name: "Instagram", url: "https://instagram.com/_slicedblissbakehouse_", icon: "📷" },
-      { name: "WhatsApp", url: "https://wa.me/23480341209272", icon: "💬" },
+    { name: "WhatsApp", url: "https://wa.me/23480341209272", icon: "💬" },
     // { name: "Facebook", url: "https://facebook.com/slicebliss", icon: "👥" },
     // { name: "Twitter", url: "https://twitter.com/slicebliss", icon: "🐦" },
   ];
